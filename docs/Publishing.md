@@ -1,5 +1,4 @@
-Nice — congrats 🎉
-If **everything is fixed**, here’s the **exact, no-nonsense checklist** to publish properly on **Firefox Add-ons (AMO)** and **Chrome Web Store**, given your current setup (dual manifests, build script, dark UI, history access).
+Here’s the **exact, no-nonsense checklist** to publish properly on **Firefox Add-ons (AMO)** and **Chrome Web Store**, given your current setup (dual manifests, build script, dark UI, history access).
 
 I’ll keep this practical and linear.
 
@@ -491,3 +490,134 @@ If you want, next I can:
 * or plan the **MV2 → MV3 Firefox migration** cleanly for later.
 
 Just say what’s next.
+
+---
+
+# Publish on Brave
+
+Publishing on **Brave** is refreshingly simple — because **you don’t publish separately**.
+
+## The short answer
+
+👉 **If your extension is approved on the Chrome Web Store, it is automatically available to Brave users.**
+
+There is **no Brave Add-ons store** and **no extra submission step**.
+
+---
+
+## Why this works
+
+**Brave** is Chromium-based and uses the **Chrome Web Store** as its extension source.
+
+By default:
+
+* Brave can install extensions directly from the Chrome Web Store
+* Brave users see your extension exactly as Chrome users do
+* Updates are pulled automatically
+
+---
+
+## What you need to do (checklist)
+
+### ✅ 1. Publish to Chrome Web Store
+
+You already have this covered:
+
+* MV3 manifest
+* ZIP uploaded
+* Approved listing
+
+Once it’s live there, **Brave is done automatically**.
+
+---
+
+### ✅ 2. Verify Brave compatibility (local test — optional but recommended)
+
+1. Open Brave
+2. Go to:
+
+   ```
+   brave://extensions
+   ```
+3. Enable **Developer mode**
+4. Click **Load unpacked**
+5. Select your `dist/chrome/` folder
+
+Check:
+
+* Popup loads
+* Scan works
+* History permission prompt appears correctly
+* Export works
+
+If it works in Chrome, it will work in Brave.
+
+---
+
+## What Brave users will see
+
+* Your **Chrome Web Store listing**
+* Same name, description, screenshots
+* Same permissions warning
+* Same updates
+
+You do **not** need:
+
+* a Brave account
+* a Brave-specific manifest
+* a Brave privacy declaration
+
+---
+
+## Optional: mention Brave explicitly (nice polish)
+
+You *can* add this line to your README or store description:
+
+> Compatible with Chrome, Edge, and Brave browsers.
+
+That’s accurate and helpful.
+
+---
+
+## Important caveats (worth knowing)
+
+### 🔹 Brave Shields
+
+Brave’s privacy features **do not block**:
+
+* `chrome.history`
+* extension local storage
+* browser UI scripts
+
+Your extension is **not affected** by Shields.
+
+---
+
+### 🔹 Brave Rewards / Ads
+
+Not relevant unless:
+
+* you inject content scripts
+* you interact with ads
+  You don’t — so nothing to worry about.
+
+---
+
+## TL;DR
+
+| Browser | Action needed               |
+| ------- | --------------------------- |
+| Chrome  | Publish on Chrome Web Store |
+| Edge    | Upload same Chrome ZIP      |
+| Brave   | **Nothing extra**           |
+| Firefox | Separate AMO submission     |
+
+Once Chrome approves your extension, **Brave users can install it immediately**.
+
+If you want, I can:
+
+* double-check your Chrome listing text for Brave friendliness,
+* suggest a **one-line Brave compatibility note** for your portfolio,
+* or help you test Brave-specific edge cases (there are very few).
+
+Just say the word.
